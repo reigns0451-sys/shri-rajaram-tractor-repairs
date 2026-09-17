@@ -18,7 +18,7 @@ html{
 }
 
 body{
-    background:#050607;
+    background:#050505;
     color:#fff;
     font-family:Arial,Helvetica,sans-serif;
     overflow-x:hidden;
@@ -35,66 +35,77 @@ body{
     align-items:center;
     justify-content:center;
     text-align:center;
-    animation:introHide 1s ease 3.5s forwards;
+    animation:introOut 1s ease 3.4s forwards;
 }
 
-.intro-box{
-    animation:introZoom 1.2s ease forwards;
+.intro-inner{
+    width:90%;
+    animation:introIn 1s ease;
 }
 
 .intro-tractor{
-    font-size:75px;
-    color:#e50914;
+    font-size:72px;
     margin-bottom:15px;
-    animation:tractorMove 1.4s ease;
+    animation:tractorIn 1.2s ease;
 }
 
-.intro-title{
-    font-size:42px;
+.intro-name{
+    font-size:44px;
     font-weight:900;
-    letter-spacing:3px;
-    animation:textIn 1s ease .5s both;
+    letter-spacing:4px;
 }
 
-.intro-title span{
-    color:#e50914;
+.intro-name span{
+    color:#e30613;
 }
 
 .intro-line{
     width:0;
     height:3px;
-    background:#e50914;
-    margin:15px auto;
-    animation:lineGrow 1s ease 1.2s forwards;
+    background:#e30613;
+    margin:17px auto;
+    animation:growLine 1s ease 1s forwards;
 }
 
 .intro-sub{
-    color:#aaa;
+    color:#888;
+    font-size:11px;
     letter-spacing:4px;
-    font-size:13px;
-    animation:textIn 1s ease 1.6s both;
+    animation:fadeIn 1s ease 1.6s both;
 }
 
-@keyframes tractorMove{
-    from{transform:translateY(40px);opacity:0}
-    to{transform:translateY(0);opacity:1}
+@keyframes tractorIn{
+    from{
+        opacity:0;
+        transform:translateY(50px) scale(.7);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
 }
 
-@keyframes textIn{
-    from{opacity:0;transform:translateY(20px)}
-    to{opacity:1;transform:translateY(0)}
+@keyframes introIn{
+    from{
+        opacity:0;
+        transform:scale(.85);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
 }
 
-@keyframes lineGrow{
-    to{width:220px}
+@keyframes growLine{
+    to{width:240px;}
 }
 
-@keyframes introZoom{
-    from{transform:scale(.92)}
-    to{transform:scale(1)}
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
 }
 
-@keyframes introHide{
+@keyframes introOut{
     to{
         opacity:0;
         visibility:hidden;
@@ -102,183 +113,190 @@ body{
     }
 }
 
-/* ================= NAVBAR ================= */
+/* ================= HEADER ================= */
 
-.navbar{
+header{
     position:absolute;
     top:0;
     left:0;
     width:100%;
+    height:84px;
     z-index:100;
-    height:82px;
     display:flex;
     align-items:center;
     justify-content:space-between;
     padding:0 5.5%;
-    background:rgba(0,0,0,.82);
-    border-bottom:1px solid rgba(255,255,255,.08);
+    background:rgba(0,0,0,.75);
+    border-bottom:1px solid rgba(255,255,255,.09);
 }
 
 .logo{
+    color:#fff;
+    text-decoration:none;
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:11px;
 }
 
 .logo-icon{
-    font-size:42px;
-    color:#e50914;
+    font-size:39px;
 }
 
-.logo-text{
-    font-size:20px;
+.logo-title{
+    font-size:18px;
     font-weight:900;
-    line-height:1.05;
+    line-height:1;
 }
 
-.logo-text span{
-    color:#e50914;
+.logo-title span{
+    color:#e30613;
 }
 
-.logo-location{
-    font-size:11px;
-    color:#aaa;
-    margin-top:4px;
+.logo-place{
+    color:#888;
+    font-size:9px;
+    letter-spacing:1.5px;
+    margin-top:6px;
 }
 
-.nav-links{
+nav{
     display:flex;
-    gap:34px;
+    gap:29px;
 }
 
-.nav-links a{
+nav a{
     color:#fff;
     text-decoration:none;
-    font-size:14px;
+    font-size:12px;
     font-weight:bold;
-    position:relative;
-}
-
-.nav-links a:after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-10px;
-    width:0;
-    height:2px;
-    background:#e50914;
     transition:.3s;
 }
 
-.nav-links a:hover:after{
-    width:100%;
+nav a:hover{
+    color:#e30613;
 }
 
 .call-top{
-    background:#e50914;
-    color:white;
+    color:#fff;
+    background:#e30613;
     text-decoration:none;
-    padding:13px 22px;
-    border-radius:8px;
+    padding:13px 20px;
+    border-radius:5px;
+    font-size:11px;
     font-weight:bold;
-    font-size:14px;
 }
 
 /* ================= HERO ================= */
 
 .hero{
-    min-height:650px;
-    height:100vh;
-    max-height:850px;
+    min-height:100vh;
+    position:relative;
     display:flex;
     align-items:center;
-    padding:100px 5.5% 50px;
-    position:relative;
+    padding:115px 5.5% 55px;
     overflow:hidden;
 
     background:
-    linear-gradient(90deg,
-    #050607 0%,
-    rgba(5,6,7,.96) 25%,
-    rgba(5,6,7,.55) 53%,
-    rgba(5,6,7,.08) 100%),
-    url("https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=2000&q=90");
+    linear-gradient(
+        90deg,
+        #050505 0%,
+        #050505 26%,
+        rgba(5,5,5,.91) 42%,
+        rgba(5,5,5,.48) 67%,
+        rgba(5,5,5,.08) 100%
+    ),
+    url("https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=2200&q=90");
 
     background-size:cover;
     background-position:center;
 }
 
+.hero:after{
+    content:"";
+    position:absolute;
+    right:-170px;
+    bottom:-230px;
+    width:600px;
+    height:600px;
+    border-radius:50%;
+    background:#e30613;
+    opacity:.13;
+    filter:blur(100px);
+}
+
 .hero-content{
     width:52%;
     position:relative;
-    z-index:2;
+    z-index:5;
 }
 
-.hero-small{
-    color:#fff;
+.hero-label{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    color:#ddd;
+    font-size:12px;
     letter-spacing:2px;
-    font-size:15px;
-    margin-bottom:18px;
+    font-weight:bold;
+    margin-bottom:21px;
 }
 
-.hero-small span{
-    display:inline-block;
-    width:70px;
+.hero-label i{
+    width:65px;
     height:2px;
-    background:#e50914;
-    vertical-align:middle;
-    margin-left:15px;
+    background:#e30613;
 }
 
 .hero h1{
-    font-size:clamp(48px,6vw,82px);
-    line-height:.98;
+    font-size:clamp(52px,7vw,92px);
+    line-height:.9;
+    letter-spacing:-3px;
     font-weight:900;
-    margin-bottom:25px;
 }
 
 .hero h1 span{
-    color:#e50914;
+    color:#e30613;
 }
 
-.hero p{
-    max-width:560px;
-    color:#ddd;
-    font-size:16px;
-    line-height:1.65;
-    margin-bottom:30px;
+.hero-text{
+    color:#bdbdbd;
+    max-width:540px;
+    font-size:14px;
+    line-height:1.8;
+    margin:28px 0;
 }
 
 .hero-buttons{
     display:flex;
-    gap:15px;
+    gap:13px;
+    flex-wrap:wrap;
 }
 
 .btn{
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    gap:9px;
-    padding:15px 24px;
-    border-radius:7px;
+    padding:15px 23px;
+    border-radius:5px;
     text-decoration:none;
-    font-weight:bold;
+    font-size:12px;
+    font-weight:900;
     transition:.3s;
 }
 
 .btn-red{
-    background:#e50914;
+    background:#e30613;
     color:#fff;
 }
 
 .btn-red:hover{
-    background:#b90710;
+    background:#b50510;
     transform:translateY(-3px);
 }
 
 .btn-outline{
-    border:1px solid #fff;
     color:#fff;
+    border:1px solid #777;
 }
 
 .btn-outline:hover{
@@ -286,162 +304,259 @@ body{
     color:#000;
 }
 
-/* ================= QUICK SERVICES ================= */
+/* Hero right framing */
 
-.quick-services{
-    background:#080a0b;
-    border-top:1px solid #252525;
-    border-bottom:1px solid #252525;
+.hero-frame{
+    position:absolute;
+    z-index:4;
+    right:5%;
+    bottom:7%;
+    width:38%;
+    height:64%;
+    border:1px solid rgba(255,255,255,.16);
+    pointer-events:none;
+}
+
+.hero-frame:before{
+    content:"";
+    position:absolute;
+    left:-3px;
+    top:35px;
+    width:5px;
+    height:110px;
+    background:#e30613;
+}
+
+.hero-frame-text{
+    position:absolute;
+    right:17px;
+    top:18px;
+    color:#aaa;
+    font-size:9px;
+    letter-spacing:3px;
+    writing-mode:vertical-rl;
+}
+
+/* ================= SERVICE STRIP ================= */
+
+.service-strip{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    padding:25px 5.5%;
+    padding:24px 5.5%;
+    background:#090a0b;
+    border-top:1px solid #252525;
+    border-bottom:1px solid #252525;
 }
 
-.quick-card{
-    padding:12px 30px;
+.strip-item{
+    padding:8px 23px;
     border-right:1px solid #292929;
-    display:flex;
-    gap:18px;
-    align-items:center;
 }
 
-.quick-card:last-child{
-    border-right:none;
+.strip-item:last-child{
+    border-right:0;
 }
 
-.quick-icon{
-    color:#e50914;
-    font-size:35px;
+.strip-icon{
+    color:#e30613;
+    font-size:25px;
+    margin-bottom:9px;
 }
 
-.quick-card h3{
-    font-size:15px;
-    margin-bottom:7px;
-}
-
-.quick-card p{
-    color:#888;
+.strip-item h3{
     font-size:12px;
+    margin-bottom:5px;
+}
+
+.strip-item p{
+    color:#777;
+    font-size:10px;
 }
 
 /* ================= ABOUT ================= */
 
 .about{
-    padding:90px 5.5%;
+    padding:95px 5.5%;
     display:grid;
-    grid-template-columns:38% 1fr 28%;
-    gap:40px;
+    grid-template-columns:42% 1fr;
+    gap:65px;
     align-items:center;
 }
 
-.about-image{
-    height:310px;
-    border-radius:8px;
+.about-photo{
+    height:390px;
     overflow:hidden;
+    position:relative;
+    border-radius:7px;
 }
 
-.about-image img{
+.about-photo img{
     width:100%;
     height:100%;
     object-fit:cover;
     transition:.6s;
 }
 
-.about-image:hover img{
-    transform:scale(1.07);
+.about-photo:hover img{
+    transform:scale(1.06);
 }
 
-.red-small{
-    color:#e50914;
-    font-size:12px;
+.about-photo:after{
+    content:"";
+    position:absolute;
+    inset:15px;
+    border:1px solid rgba(255,255,255,.25);
+}
+
+.section-label{
+    color:#e30613;
+    font-size:11px;
     font-weight:bold;
-    letter-spacing:2px;
+    letter-spacing:3px;
 }
 
 .about h2{
-    font-size:36px;
-    margin:12px 0 20px;
+    font-size:42px;
+    line-height:1;
+    margin:14px 0 21px;
 }
 
 .about h2 span{
-    color:#e50914;
+    color:#e30613;
 }
 
 .about-text{
-    color:#aaa;
-    line-height:1.7;
-    font-size:14px;
-}
-
-.about-btn{
-    margin-top:20px;
-}
-
-.info-box{
-    border-left:1px solid #333;
-    padding-left:30px;
-}
-
-.info-item{
-    margin-bottom:25px;
-}
-
-.info-item strong{
-    display:block;
-    color:#fff;
-    margin-bottom:5px;
-}
-
-.info-item span{
     color:#999;
-    font-size:13px;
+    font-size:14px;
+    line-height:1.8;
+    max-width:620px;
 }
 
-.info-item b{
-    color:#e50914;
+.about .btn{
+    margin-top:24px;
+}
+
+/* ================= SERVICES ================= */
+
+.services{
+    padding:85px 5.5%;
+    background:#090a0b;
+    border-top:1px solid #181818;
+}
+
+.section-heading{
+    text-align:center;
+    margin-bottom:42px;
+}
+
+.section-heading h2{
+    font-size:40px;
+    margin-top:10px;
+}
+
+.section-heading p{
+    color:#777;
+    font-size:12px;
+    margin-top:9px;
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.service-card{
+    background:#111;
+    border:1px solid #292929;
+    overflow:hidden;
+    border-radius:7px;
+    transition:.35s;
+}
+
+.service-card:hover{
+    transform:translateY(-7px);
+    border-color:#e30613;
+}
+
+.service-image{
+    height:190px;
+    overflow:hidden;
+}
+
+.service-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.service-card:hover img{
+    transform:scale(1.08);
+}
+
+.service-content{
+    padding:22px;
+}
+
+.service-content h3{
+    font-size:19px;
+    margin-bottom:9px;
+}
+
+.service-content p{
+    color:#777;
+    font-size:12px;
+    line-height:1.7;
+    margin-bottom:18px;
+}
+
+.service-content a{
+    color:#e30613;
+    text-decoration:none;
+    font-size:11px;
+    font-weight:bold;
 }
 
 /* ================= GALLERY ================= */
 
 .gallery{
-    padding:75px 5.5%;
-    background:#080a0b;
-    border-top:1px solid #181818;
+    padding:85px 5.5%;
 }
 
-.section-heading{
+.gallery-heading{
     display:flex;
     justify-content:space-between;
     align-items:end;
-    margin-bottom:25px;
+    margin-bottom:27px;
 }
 
-.section-heading h2{
-    font-size:30px;
-    margin-top:8px;
+.gallery-heading h2{
+    font-size:38px;
+    margin-top:9px;
 }
 
-.view-all{
-    color:#fff;
+.gallery-heading a{
+    color:#e30613;
     text-decoration:none;
-    font-size:13px;
-}
-
-.view-all:hover{
-    color:#e50914;
+    font-size:11px;
+    font-weight:bold;
 }
 
 .gallery-grid{
     display:grid;
-    grid-template-columns:1.25fr 1fr 1fr 1.25fr;
+    grid-template-columns:1.5fr 1fr 1fr;
+    grid-template-rows:220px 220px;
     gap:12px;
 }
 
 .gallery-item{
-    height:230px;
     overflow:hidden;
-    border-radius:7px;
-    position:relative;
+    border-radius:6px;
+}
+
+.gallery-item:first-child{
+    grid-row:span 2;
 }
 
 .gallery-item img{
@@ -452,52 +567,52 @@ body{
 }
 
 .gallery-item:hover img{
-    transform:scale(1.08);
+    transform:scale(1.07);
 }
 
 /* ================= CONTACT ================= */
 
 .contact{
-    padding:80px 5.5%;
+    padding:90px 5.5%;
     text-align:center;
     background:
-    linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.9)),
+    linear-gradient(rgba(0,0,0,.87),rgba(0,0,0,.93)),
     url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1800&q=90");
     background-size:cover;
     background-position:center;
 }
 
 .contact h2{
-    font-size:42px;
+    font-size:44px;
     margin:12px 0;
 }
 
 .contact p{
-    color:#aaa;
-    margin-bottom:25px;
+    color:#999;
+    line-height:1.7;
+    margin-bottom:27px;
 }
 
 .contact-buttons{
     display:flex;
     justify-content:center;
-    gap:15px;
+    gap:13px;
 }
 
 /* ================= FOOTER ================= */
 
 footer{
-    background:#030405;
+    background:#030303;
     border-top:1px solid #222;
     padding:25px 5.5%;
     display:flex;
     justify-content:space-between;
-    align-items:center;
-    color:#777;
-    font-size:12px;
+    color:#666;
+    font-size:11px;
 }
 
-.footer-red{
-    color:#e50914;
+footer span{
+    color:#e30613;
 }
 
 /* ================= WHATSAPP ================= */
@@ -506,100 +621,96 @@ footer{
     position:fixed;
     right:20px;
     bottom:20px;
-    width:58px;
-    height:58px;
+    width:57px;
+    height:57px;
     border-radius:50%;
     background:#25d366;
-    color:#fff;
+    color:white;
     display:flex;
     align-items:center;
     justify-content:center;
     text-decoration:none;
+    font-size:11px;
     font-weight:bold;
-    font-size:14px;
     z-index:500;
-    box-shadow:0 5px 25px rgba(0,0,0,.5);
-    animation:pulse 2s infinite;
+    box-shadow:0 5px 25px rgba(0,0,0,.6);
 }
 
-@keyframes pulse{
-    0%,100%{transform:scale(1)}
-    50%{transform:scale(1.08)}
-}
-
-/* ================= MOBILE ================= */
+/* ================= TABLET ================= */
 
 @media(max-width:950px){
 
-    .navbar{
-        padding:0 4%;
-    }
-
-    .nav-links{
+    nav{
         display:none;
     }
 
-    .call-top{
-        padding:11px 14px;
-        font-size:12px;
-    }
-
-    .hero{
-        min-height:700px;
-        background:
-        linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,0,0,.45)),
-        url("https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=1400&q=85");
-        background-position:center;
+    .top-call{
+        margin-left:auto;
     }
 
     .hero-content{
-        width:90%;
+        width:68%;
     }
 
-    .quick-services{
+    .hero-frame{
+        width:47%;
+        height:55%;
+    }
+
+    .service-strip{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .quick-card:nth-child(2){
-        border-right:none;
+    .strip-item:nth-child(2){
+        border-right:0;
+    }
+
+    .service-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
     .about{
         grid-template-columns:1fr;
     }
-
-    .info-box{
-        border-left:none;
-        border-top:1px solid #333;
-        padding:25px 0 0;
-    }
-
-    .gallery-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
 }
+
+/* ================= MOBILE ================= */
 
 @media(max-width:600px){
 
-    .logo-text{
-        font-size:15px;
+    header{
+        height:70px;
+        padding:0 5%;
     }
 
     .logo-icon{
-        font-size:30px;
+        font-size:29px;
     }
 
-    .logo-location{
-        font-size:9px;
+    .logo-title{
+        font-size:13px;
     }
 
-    .call-top{
+    .logo-place{
+        font-size:8px;
+    }
+
+    .top-call{
         display:none;
     }
 
     .hero{
-        min-height:680px;
-        padding:120px 6% 50px;
+        min-height:720px;
+        padding:115px 6% 50px;
+
+        background:
+        linear-gradient(
+            rgba(0,0,0,.72),
+            rgba(0,0,0,.91)
+        ),
+        url("https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=1400&q=90");
+
+        background-position:center;
     }
 
     .hero-content{
@@ -607,59 +718,85 @@ footer{
     }
 
     .hero h1{
-        font-size:48px;
+        font-size:52px;
+        letter-spacing:-2px;
     }
 
-    .hero p{
-        font-size:14px;
+    .hero-text{
+        font-size:13px;
     }
 
     .hero-buttons{
         flex-direction:column;
-        width:210px;
+        width:220px;
     }
 
-    .quick-services{
+    .hero-frame{
+        display:none;
+    }
+
+    .service-strip{
         grid-template-columns:1fr;
-        padding:15px 6%;
+        padding:12px 6%;
     }
 
-    .quick-card{
-        border-right:none;
+    .strip-item{
+        border-right:0;
         border-bottom:1px solid #222;
-        padding:20px 5px;
+        padding:19px 5px;
     }
 
-    .quick-card:last-child{
-        border-bottom:none;
+    .strip-item:last-child{
+        border-bottom:0;
     }
 
-    .about{
-        padding:65px 6%;
-    }
-
-    .about h2{
-        font-size:31px;
-    }
-
-    .gallery{
-        padding:60px 6%;
-    }
-
-    .gallery-grid{
-        grid-template-columns:1fr;
-    }
-
-    .gallery-item{
-        height:220px;
-    }
-
+    .about,
+    .services,
+    .gallery,
     .contact{
         padding:65px 6%;
     }
 
-    .contact h2{
+    .about-photo{
+        height:275px;
+    }
+
+    .about h2{
+        font-size:34px;
+    }
+
+    .section-heading h2,
+    .gallery-heading h2{
         font-size:32px;
+    }
+
+    .service-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-heading{
+        display:block;
+    }
+
+    .gallery-heading a{
+        display:block;
+        margin-top:14px;
+    }
+
+    .gallery-grid{
+        display:grid;
+        grid-template-columns:1fr;
+        grid-template-rows:none;
+    }
+
+    .gallery-item,
+    .gallery-item:first-child{
+        height:225px;
+        grid-row:auto;
+    }
+
+    .contact h2{
+        font-size:33px;
     }
 
     .contact-buttons{
@@ -673,8 +810,12 @@ footer{
         text-align:center;
     }
 
-    .intro-title{
+    .intro-name{
         font-size:28px;
+    }
+
+    .intro-sub{
+        font-size:8px;
     }
 }
 </style>
@@ -685,55 +826,72 @@ footer{
 <!-- ================= OPENING ANIMATION ================= -->
 
 <div id="intro">
-    <div class="intro-box">
-        <div class="intro-tractor">🚜</div>
 
-        <div class="intro-title">
+    <div class="intro-inner">
+
+        <div class="intro-tractor">
+            🚜
+        </div>
+
+        <div class="intro-name">
             SHRI <span>RAJARAM</span>
         </div>
 
         <div class="intro-line"></div>
 
-        <div class="intro-title">
+        <div class="intro-name">
             TRACTOR REPAIRS
         </div>
 
         <div class="intro-sub">
             BISHANGARH • JALORE • RAJASTHAN
         </div>
+
     </div>
+
 </div>
 
 
-<!-- ================= NAVBAR ================= -->
+<!-- ================= HEADER ================= -->
 
-<header class="navbar">
+<header>
 
-    <a href="index.html" class="logo"
-       style="text-decoration:none;color:white;">
+    <a href="index.html" class="logo">
 
-        <div class="logo-icon">🚜</div>
+        <div class="logo-icon">
+            🚜
+        </div>
 
         <div>
-            <div class="logo-text">
+
+            <div class="logo-title">
                 SHRI <span>RAJARAM</span><br>
                 TRACTOR REPAIRS
             </div>
 
-            <div class="logo-location">
-                Bishangarh, Jalore
+            <div class="logo-place">
+                BISHANGARH, JALORE
             </div>
+
         </div>
 
     </a>
 
-    <nav class="nav-links">
+
+    <nav>
+
         <a href="index.html">HOME</a>
+
         <a href="#about">ABOUT</a>
+
         <a href="services.html">SERVICES</a>
+
         <a href="#gallery">GALLERY</a>
+
         <a href="#contact">CONTACT</a>
+
     </nav>
+
 
     <a href="tel:9982540056" class="call-top">
         ☎ CALL NOW
@@ -748,33 +906,59 @@ footer{
 
     <div class="hero-content">
 
-        <div class="hero-small">
-            TRUSTED TRACTOR REPAIR SERVICE
-            <span></span>
+        <div class="hero-label">
+
+            TRACTOR REPAIR & SERVICE
+
+            <i></i>
+
         </div>
 
+
         <h1>
+
             KEEP YOUR<br>
+
             <span>TRACTOR</span><br>
-            RUNNING
+
+            RUNNING.
+
         </h1>
 
-        <p>
-            From regular servicing to engine work, spare parts
-            and used tractor assistance — we provide dependable
-            tractor services with practical workshop support.
+
+        <p class="hero-text">
+
+            Reliable tractor repair, engine work, tractor parts
+            and used tractor assistance from Shri Rajaram Tractor
+            Repairs, Bishangarh, Jalore.
+
         </p>
+
 
         <div class="hero-buttons">
 
             <a href="services.html" class="btn btn-red">
+
                 🔧 EXPLORE SERVICES →
+
             </a>
+
 
             <a href="tel:9982540056" class="btn btn-outline">
+
                 ☎ CALL NOW
+
             </a>
 
+        </div>
+
+    </div>
+
+
+    <div class="hero-frame">
+
+        <div class="hero-frame-text">
+            SHRI RAJARAM • TRACTOR REPAIRS
         </div>
 
     </div>
@@ -782,40 +966,75 @@ footer{
 </section>
 
 
-<!-- ================= QUICK SERVICES ================= -->
+<!-- ================= SERVICE STRIP ================= -->
 
-<section class="quick-services">
+<section class="service-strip">
 
-    <div class="quick-card">
-        <div class="quick-icon">🔧</div>
-        <div>
-            <h3>TRACTOR REPAIR</h3>
-            <p>Repair & maintenance</p>
+    <div class="strip-item">
+
+        <div class="strip-icon">
+            🔧
         </div>
+
+        <h3>
+            TRACTOR REPAIR
+        </h3>
+
+        <p>
+            Repair & maintenance
+        </p>
+
     </div>
 
-    <div class="quick-card">
-        <div class="quick-icon">⚙️</div>
-        <div>
-            <h3>ENGINE WORK</h3>
-            <p>Engine servicing & work</p>
+
+    <div class="strip-item">
+
+        <div class="strip-icon">
+            ⚙️
         </div>
+
+        <h3>
+            ENGINE WORK
+        </h3>
+
+        <p>
+            Engine inspection & work
+        </p>
+
     </div>
 
-    <div class="quick-card">
-        <div class="quick-icon">⚙</div>
-        <div>
-            <h3>TRACTOR PARTS</h3>
-            <p>Parts & workshop needs</p>
+
+    <div class="strip-item">
+
+        <div class="strip-icon">
+            🛠
         </div>
+
+        <h3>
+            TRACTOR PARTS
+        </h3>
+
+        <p>
+            Parts & workshop needs
+        </p>
+
     </div>
 
-    <div class="quick-card">
-        <div class="quick-icon">🚜</div>
-        <div>
-            <h3>USED TRACTORS</h3>
-            <p>Massey Ferguson options</p>
+
+    <div class="strip-item">
+
+        <div class="strip-icon">
+            🚜
         </div>
+
+        <h3>
+            USED TRACTORS
+        </h3>
+
+        <p>
+            Massey Ferguson assistance
+        </p>
+
     </div>
 
 </section>
@@ -825,63 +1044,210 @@ footer{
 
 <section class="about" id="about">
 
-    <div class="about-image">
+    <div class="about-photo">
 
         <img
-        src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=1000&q=90"
+        src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=1200&q=90"
         alt="Tractor Workshop">
 
     </div>
 
+
     <div>
 
-        <div class="red-small">
-            ABOUT US
+        <div class="section-label">
+            ABOUT THE WORKSHOP
         </div>
 
+
         <h2>
+
             SHRI RAJARAM<br>
+
             <span>TRACTOR REPAIRS</span>
+
         </h2>
 
+
         <p class="about-text">
-            Shri Rajaram Tractor Repairs is a tractor repair
-            and workshop business located in Bishangarh,
-            Jalore, Rajasthan.
+
+            Shri Rajaram Tractor Repairs is located in
+            Bishangarh, Jalore, Rajasthan.
+
             <br><br>
+
             We provide tractor repair, engine work,
             tractor parts and assistance related to
             used tractors.
+
         </p>
 
-        <a href="services.html" class="btn btn-red about-btn">
-            KNOW MORE →
+
+        <a href="services.html" class="btn btn-red">
+
+            VIEW SERVICES →
+
         </a>
 
     </div>
 
+</section>
 
-    <div class="info-box">
 
-        <div class="info-item">
-            <strong>📍 Location</strong>
-            <span>Bishangarh, Jalore, Rajasthan</span>
+<!-- ================= SERVICES ================= -->
+
+<section class="services">
+
+    <div class="section-heading">
+
+        <div class="section-label">
+            WHAT WE DO
         </div>
 
-        <div class="info-item">
-            <strong>☎ Phone</strong>
-            <span>9982540056</span>
-        </div>
+        <h2>
+            OUR SERVICES
+        </h2>
 
-        <div class="info-item">
-            <strong>⏰ Working Hours</strong>
-            <span>Contact for current timing</span>
-        </div>
+        <p>
+            Practical workshop services for your tractor.
+        </p>
 
-        <div class="info-item">
-            <strong><b>★</b> Your Tractor</strong>
-            <span>Our Priority</span>
-        </div>
+    </div>
+
+
+    <div class="service-grid">
+
+
+        <!-- CARD 1 -->
+
+        <article class="service-card">
+
+            <div class="service-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=900&q=85"
+                alt="Tractor Repair">
+
+            </div>
+
+
+            <div class="service-content">
+
+                <h3>
+                    Tractor Repair
+                </h3>
+
+                <p>
+                    Tractor inspection, repair and
+                    maintenance workshop services.
+                </p>
+
+                <a href="services.html">
+                    LEARN MORE →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- CARD 2 -->
+
+        <article class="service-card">
+
+            <div class="service-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=900&q=85"
+                alt="Engine Work">
+
+            </div>
+
+
+            <div class="service-content">
+
+                <h3>
+                    Engine Work
+                </h3>
+
+                <p>
+                    Engine inspection, servicing and
+                    workshop related work.
+                </p>
+
+                <a href="services.html">
+                    LEARN MORE →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- CARD 3 -->
+
+        <article class="service-card">
+
+            <div class="service-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=85"
+                alt="Tractor Parts">
+
+            </div>
+
+
+            <div class="service-content">
+
+                <h3>
+                    Tractor Parts
+                </h3>
+
+                <p>
+                    Tractor parts and workshop
+                    requirements.
+                </p>
+
+                <a href="services.html">
+                    LEARN MORE →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- CARD 4 -->
+
+        <article class="service-card">
+
+            <div class="service-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=85"
+                alt="Used Tractor">
+
+            </div>
+
+
+            <div class="service-content">
+
+                <h3>
+                    Used Tractors
+                </h3>
+
+                <p>
+                    Assistance related to used tractors
+                    and Massey Ferguson options.
+                </p>
+
+                <a href="services.html">
+                    LEARN MORE →
+                </a>
+
+            </div>
+
+        </article>
 
     </div>
 
@@ -892,18 +1258,23 @@ footer{
 
 <section class="gallery" id="gallery">
 
-    <div class="section-heading">
+    <div class="gallery-heading">
 
         <div>
-            <div class="red-small">
-                OUR GALLERY
+
+            <div class="section-label">
+                OUR WORKSHOP
             </div>
 
-            <h2>WORKSHOP & TRACTORS</h2>
+            <h2>
+                GARAGE GALLERY
+            </h2>
+
         </div>
 
-        <a href="services.html" class="view-all">
-            View All →
+
+        <a href="services.html">
+            VIEW SERVICES →
         </a>
 
     </div>
@@ -911,20 +1282,49 @@ footer{
 
     <div class="gallery-grid">
 
-        <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=900&q=85">
-        </div>
 
         <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=85">
+
+            <img
+            src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=1200&q=90"
+            alt="Tractor">
+
         </div>
 
-        <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=85">
-        </div>
 
         <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=900&q=85">
+
+            <img
+            src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=85"
+            alt="Workshop">
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+            src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=900&q=85"
+            alt="Garage">
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+            src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=85"
+            alt="Repair">
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img
+            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=85"
+            alt="Workshop Tools">
+
         </div>
 
     </div>
@@ -936,28 +1336,38 @@ footer{
 
 <section class="contact" id="contact">
 
-    <div class="red-small">
-        GET IN TOUCH
+    <div class="section-label">
+        CONTACT US
     </div>
+
 
     <h2>
         NEED TRACTOR SERVICE?
     </h2>
 
+
     <p>
-        Contact Shri Rajaram Tractor Repairs.
+        Shri Rajaram Tractor Repairs<br>
+        Bishangarh, Jalore, Rajasthan
     </p>
+
 
     <div class="contact-buttons">
 
         <a href="tel:9982540056" class="btn btn-red">
-            ☎ CALL 9982540056
+
+            ☎ 9982540056
+
         </a>
 
-        <a href="https://wa.me/919982540056"
-           target="_blank"
-           class="btn btn-outline">
+
+        <a
+        href="https://wa.me/919982540056?text=Hello%20Shri%20Rajaram%20Tractor%20Repairs"
+        target="_blank"
+        class="btn btn-outline">
+
             💬 WHATSAPP
+
         </a>
 
     </div>
@@ -971,22 +1381,30 @@ footer{
 
     <div>
         © 2026 Shri Rajaram Tractor Repairs.
-        All Rights Reserved.
     </div>
 
-    <div class="footer-red">
-        MASSEY FERGUSON • TRACTOR REPAIRS
+    <div>
+
+        <span>TRACTOR REPAIR</span>
+        •
+        <span>PARTS</span>
+        •
+        <span>SERVICE</span>
+
     </div>
 
 </footer>
 
 
-<!-- ================= WHATSAPP ================= -->
+<!-- ================= FLOATING WHATSAPP ================= -->
 
-<a href="https://wa.me/919982540056"
-   target="_blank"
-   class="whatsapp">
+<a
+href="https://wa.me/919982540056?text=Hello%20Shri%20Rajaram%20Tractor%20Repairs"
+target="_blank"
+class="whatsapp">
+
     WA
+
 </a>
 
 </body>
